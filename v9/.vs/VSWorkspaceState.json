@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ProjectName",
+    "\\ProjectName\\AppName",
+    "\\ProjectName\\AppName\\static",
+    "\\ProjectName\\AppName\\static\\images",
+    "\\ProjectName\\AppName\\templates",
+    "\\ProjectName\\AppName\\utils",
+    "\\ProjectName\\ProjectName"
+  ],
+  "SelectedNode": "\\ProjectName\\AppName\\templates\\user_login.html",
+  "PreviewInSolutionExplorer": false
+}

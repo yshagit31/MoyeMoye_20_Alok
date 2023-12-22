@@ -1,0 +1,193 @@
+{% extends 'base_nav.html' %}
+
+{% block title %}Manage Task Delete{% endblock title %}
+
+{% block head_style %}
+<style>
+    body {
+        /* background-image: linear-gradient(45deg,white,black); */
+        overflow-y: auto;
+        overflow-x: auto;
+        color: white;
+    }
+
+    h1 {
+        color: black;
+    }
+
+    table {
+        border-collapse: separate;
+        border-spacing: 7px;
+    }
+
+    th, td {
+        border: 1px solid white;
+        padding: 5px;
+    }
+
+    th {
+        /* background-color:yellow; */
+        /* background-color: #ff6780; */
+        background: linear-gradient(to right, #ff6780, #ec6ead);
+        color: white;
+    }
+
+    td {
+        background-color: #CAE7DF;
+        /* background-color: #4AC6D2; */
+        color: black;
+    }
+
+    .delete-btn {
+        display: flex;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+        .delete-btn input {
+            padding: 0.7rem;
+            color: white;
+            /* background-color: rgb(61, 214, 61); */
+            background-color: #4AC6D2;
+            border: 0;
+            border-radius: 15%;
+        }
+
+        .delete-btn:hover input {
+            /* background-color:rgb(24, 158, 24); */
+            /* background-color:#6b6abc ; */
+            box-shadow: 0 0 2px 2px black;
+        }
+
+    .main-container {
+        /* background-color: yellow; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* background: linear-gradient(to right, #3494e6, #ec6ead); */
+        background-size: cover;
+        background-blend-mode: overlay;
+    }
+</style>
+{% endblock head_style %}
+
+{% block heading_name %}Manage Task Delete {% endblock heading_name %}
+
+{% block body %}
+
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="delete-btn">
+            <input type="submit" value="DELETE" />
+        </div>
+        <div class="main-container">
+            <div>
+                <h1>Work</h1>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Due Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in worktabledata %}
+                        <tr>
+                            {% for data in item%}
+                            <td>{{data}}</td>
+                            {% endfor %}
+                            <td><input type="checkbox" name="checkbox_options_Work" value="{{ item.0 }}"</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h1>Personal</h1>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Due Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in personaltabledata %}
+                        <tr>
+                            {% for data in item%}
+                            <td>{{data}}</td>
+                            {% endfor %}
+                            
+                            <td><input type="checkbox" name="checkbox_options_Personal" value="{{item.0 }}"</td></td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h1>Skill</h1>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Due Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in skilltabledata %}
+                        <tr>
+                            {% for data in item%}
+                            <td>{{data}}</td>
+                            {% endfor %}
+                            
+                            <td><input type="checkbox" name="checkbox_options_Skill" value="{{item.0 }}"</td></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h1>shopping</h1>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Due Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in shoppingtabledata %}
+                        <tr>
+                            {% for data in item%}
+                            <td>{{data}}</td>
+                            {% endfor %}
+                            
+                            <td><input type="checkbox" name="checkbox_options_Shopping" value="{{ item.0}}"</td></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock body %}

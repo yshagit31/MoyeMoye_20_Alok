@@ -1,0 +1,146 @@
+{% extends 'base_nav.html' %}
+
+{% block title %}DashBoard{% endblock title %}
+
+{% block head_style %}
+<style>
+    body {
+        /* background-image: linear-gradient(45deg,white,black); */
+
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+
+    .tablec {
+        width: 100%;
+        /* height: 100vh; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    table {
+        border-collapse: separate;
+        border-spacing: 7px;
+    }
+
+    th, td {
+        border: 1px solid white;
+        padding: 5px;
+    }
+
+    th {
+        /* background-color:yellow; */
+        /* background-color: #ff6780; */
+        background: linear-gradient(to right, #ff6780, #ec6ead);
+        color: white;
+    }
+
+    td {
+        background-color: #CAE7DF;
+        /* background-color: #4AC6D2; */
+        color: black;
+    }
+</style>
+{% endblock head_style %}
+
+{% block heading_name %}DashBoard {% endblock heading_name %}
+
+{% block body %}
+<div class="tablec">
+    <div>
+        <h1>Work</h1>
+
+        <table border="0">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in worktabledata %}
+                <tr>
+                    {% for data in item%}
+                    <td>{{data}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h1>Personal</h1>
+
+        <table border="0">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in personaltabledata %}
+                <tr>
+                    {% for data in item%}
+                    <td>{{data}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h1>Skill</h1>
+
+        <table border="0">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in skilltabledata %}
+                <tr>
+                    {% for data in item%}
+                    <td>{{data}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h1>shopping</h1>
+
+        <table border="0">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in shoppingtabledata %}
+                <tr>
+                    {% for data in item%}
+                    <td>{{data}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock body %}
